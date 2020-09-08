@@ -9,6 +9,7 @@ import {
 import { Counter } from './features/counter/Counter';
 import PostsList from './features/posts/PostsList';
 import AddPostForm from './features/posts/AddPostForm';
+import SinglePostPage from './features/posts/SinglePostPage';
 
 import './App.css';
 
@@ -27,14 +28,15 @@ function App() {
               </React.Fragment>
             )}
           />
+          <Route 
+            exact
+            path="/posts/:postId"
+            component={SinglePostPage}
+          />
           <Route
             exact
             path="/counter"
-            render={() => (
-              <React.Fragment>
-                <CounterApp />
-              </React.Fragment>
-            )}
+            component={Counter}
           />
           <Redirect to="/" />
         </Switch>
